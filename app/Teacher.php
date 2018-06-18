@@ -13,6 +13,6 @@ class Teacher extends Model
     protected $visible = ['name', 'introduction'];
 
     public function subjects() {
-        return $this->belongsToMany('App\Subject');
+        return $this->belongsToMany('App\Subject', 'teacher_subject');
     }
 }
