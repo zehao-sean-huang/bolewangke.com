@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function subscribedVideos() {
+        return $this->morphedByMany('App\Video', 'subscription');
+    }
 }

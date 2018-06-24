@@ -9,9 +9,7 @@
             <h5 class="border-bottom border-gray pb-2 mb-0">全部导师</h5>
             <div class="row">
                 @foreach($teachers as $teacher)
-                    @component('components.teacher', ['teacher' => $teacher])
-
-                    @endcomponent
+                    @include('components.teacher', ['teacher' => $teacher])
                 @endforeach
             </div>
         </div>
