@@ -15,8 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('about', function () {
+    return view('about');
+})->name('about');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('teacher', 'TeacherController');
+Route::resource('teacher', 'TeacherController')->only(['index', 'show']);
+
+Route::resource('video', 'VideoController')->only['show'];

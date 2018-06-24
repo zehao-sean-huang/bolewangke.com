@@ -7,7 +7,7 @@
             <div class="media">
                 <img class="ml-2 mr-3 border border-info rounded-circle"
                      src="{{ asset('storage/' . $teacher->picture) }}" alt="教师头像" width="100px">
-                <div class="media-body ml-3">
+                <div class="media-body">
                     <h3>{{ $teacher->name }}</h3>
                     <p class="small mb-1">
                         <strong>擅长科目：</strong>
@@ -15,15 +15,43 @@
                             <span class="small badge badge-info">{{ $subject->name }}</span>
                         @endforeach
                     </p>
+                    <p class="small mb-1">
+                        <strong>语文分数：</strong> {{ $teacher->gaokao->chinese }}
+                    </p>
+                    <p class="small mb-1">
+                        <strong>数学分数：</strong> {{ $teacher->gaokao->math }}
+                    </p>
+                    <p class="small mb-1">
+                        <strong>英语分数：</strong> {{ $teacher->gaokao->english }}
+                    </p>
+                    <p class="small mb-1">
+                        <strong>{{ $teacher->gaokao->type }}综合：</strong> {{ $teacher->gaokao->general }}
+                    </p>
                     <p class="small mt-3"> {{ $teacher->introduction }}</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="videos" class="container mb-4">
-        <div class="my-3 p-3 bg-white rounded box-shadow">
-            <h5 class="border-bottom border-gray pb-2 mb-0">教学视频</h5>
+    <div id="videos" class="container">
+        <div class="row">
+            @foreach($teacher->videos as $video)
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="{{ asset('storage/' . $video->thumbnail) }}" alt="logo">
+                        <div class="card-body">
+                            <h5>{{ $video->name }}</h5>
+                            <p class="card-text">{{ $video->introduction }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{{ route('video.show', ['id' => $video->id]) }}" class="btn btn-sm btn-outline-info">观看视频</a>
+                                    <a href="{{ route('about') }}" class="btn btn-sm btn-outline-info">咨询价格</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 

@@ -79,15 +79,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    高考网课平台
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="links">t
+                    <a href="{{ route('teacher.index') }}">全部导师</a>
+                    <a href="{{ route('video.index') }}">全部课程</a>
+                    <a href="#">发现课程</a>
+                    <a href="#">搜索本站</a>
+                    <a href="#">关于我们</a>
                 </div>
             </div>
         </div>
