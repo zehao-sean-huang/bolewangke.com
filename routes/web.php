@@ -25,4 +25,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('teacher', 'TeacherController')->only(['index', 'show']);
 
-Route::resource('video', 'VideoController')->only['show'];
+Route::resource('video', 'VideoController')->only(['show']);
