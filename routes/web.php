@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('welcome', ['teachers' => \App\Teacher::all()->where('featured', '=', true)]);
+})->name('welcome');
 
 Route::get('about', function () {
     return view('about');
@@ -25,4 +25,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('teacher', 'TeacherController')->only(['index', 'show']);
 
-Route::resource('video', 'VideoController')->only(['show']);
+Route::resource('video', 'VideoController')->only(['index', 'show']);

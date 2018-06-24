@@ -8,9 +8,9 @@ class Teacher extends Model
 {
     protected $table = 'teachers';
 
-    protected $fillable = ['name', 'introduction', 'gaokao'];
+    protected $guarded = [];
 
-    protected $visible = ['name', 'introduction', 'gaokao'];
+    protected $hidden = [];
 
     public function getGaokaoAttribute($value) {
         return json_decode($value);

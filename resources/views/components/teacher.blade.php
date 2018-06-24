@@ -7,6 +7,6 @@
         </h5>
     </div>
     <div>
-        <p class="small" style="margin-left: 10%;margin-right: 10%; ; text-align:justify; text-justify:inter-ideograph; align-self: center">{{ $teacher->introduction }}</p>
+        <p style="margin-left: 10%;margin-right: 10%; ; text-align:justify; text-justify:inter-ideograph; align-self: center">{{ $teacher->introduction }}</p>
     </div>
 </div>
