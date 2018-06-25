@@ -118,28 +118,28 @@
         @include('components.nav')
         <div id="features-carousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#features-carousel" data-slide-to="0" class=""></li>
-                <li data-target="#features-carousel" data-slide-to="1" class="active"></li>
+                <li data-target="#features-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#features-carousel" data-slide-to="1" class=""></li>
                 <li data-target="#features-carousel" data-slide-to="2" class=""></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item">
+                <div class="carousel-item active">
                     <img class="first-slide" src="{{ asset('storage/images/carousel-1.jpeg') }}" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>清北导师团队</h1>
                             <p>我们邀请2018年高考中文理科顶尖考生，根据他们三年来学习的心得体会，利用他们对知识的熟悉和题型的把握，为成都的学弟学妹们制作高质量、易理解的网络课程。</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">全部导师</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="{{ route('teacher.index') }}" role="button">全部导师</a></p>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item active">
+                <div class="carousel-item">
                     <img class="second-slide" src="{{ asset('storage/images/carousel-2.jpeg') }}" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>覆盖九大科目</h1>
                             <p>我们拥有多元化的导师团队，不仅邀请综合成绩优秀者，亦有在单一学科上经验丰富的导师入驻，无缝对接四川高考改革，针对不同学员的自身需求，提供个性化定制服务。</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">全部课程</a></p>
+                            <p><a class="btn btn-lg btn-primary disabled" href="{{ route('video.index') }}" role="link">全部课程</a></p>
                         </div>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                         <div class="carousel-caption text-right">
                             <h1>长期线上答疑</h1>
                             <p>除了在我们平台进行网课学习，我们的专业客服团队会联系导师和学员进行线上答疑。学员在收获课程内容本身的同时，也能获得导师的个性化知道，和导师建立长期联系。</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">立即注册</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="{{ route('register') }}" role="button">立即注册</a></p>
                         </div>
                     </div>
                 </div>
