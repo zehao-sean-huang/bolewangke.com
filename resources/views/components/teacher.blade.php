@@ -3,7 +3,7 @@
         <img class="rounded-circle mb-2" src="{{ asset('storage/' . $teacher->picture) }}" alt="导师头像" width="140px" height="140px"></a>
     <div class="mt-3 mb-2" style="overflow : hidden;text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 1;-webkit-box-orient: vertical;height:25px;">
         <h5>
-            <a href="{{ route('teacher.show', ['teacher' => $teacher->id]) }}" class="text-info">{{ $teacher->name }}</a>
+            <a href="{{ route('teacher.show', ['teacher' => $teacher->id]) }}" class="text-secondary">{{ $teacher->name }}</a>
         </h5>
     </div>
     <div>
