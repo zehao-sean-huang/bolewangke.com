@@ -107,7 +107,7 @@
             }
 
             @media (min-width: 62em) {
-                . -heading {
+                .carousel-heading {
                     margin-top: 7rem;
                 }
             }
@@ -127,8 +127,8 @@
                     <img class="first-slide" src="{{ asset('storage/images/carousel-1.jpeg') }}" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
-                            <h1>清北导师团队</h1>
-                            <p>我们邀请2018年高考中文理科顶尖考生，根据他们三年来学习的心得体会，利用他们对知识的熟悉和题型的把握，为成都的学弟学妹们制作高质量、易理解的网络课程。</p>
+                            <h1>名校导师团队</h1>
+                            <p>我们邀请2018年高考中文理科顶尖考生，根据他们三年来学习的心得体会，利用他们对知识的熟悉和题型的把握，为四川的学弟学妹们制作高质量的网络课程。</p>
                             <p><a class="btn btn-lg btn-primary" href="{{ route('teacher.index') }}" role="button">全部导师</a></p>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>覆盖九大科目</h1>
-                            <p>我们拥有多元化的导师团队，不仅邀请综合成绩优秀者，亦有在单一学科上经验丰富的导师入驻，无缝对接四川高考改革，针对不同学员的自身需求，提供个性化定制服务。</p>
+                            <p>我们拥有多元化的导师团队，不仅邀请综合成绩优秀者，亦有在单一学科上经验丰富的导师入驻，无缝衔接四川高考改革，针对不同学员的自身需求，提供个性化定制服务。</p>
                             <p><a class="btn btn-lg btn-primary disabled" href="{{ route('video.index') }}" role="link">全部课程</a></p>
                         </div>
                     </div>
