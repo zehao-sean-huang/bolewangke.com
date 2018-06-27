@@ -20,7 +20,7 @@
                                 您没有权观看该课程。
                                 @if($video->public)本课程为免费课程，@endif
                                 @guest()请您先<a href="{{ route('login') }}">登录</a>或<a href="{{ route('register') }}">注册</a>。@endguest
-                                @auth若要查看课程，请点此报名，我们的客服会在两小时内为您开通课程。@endauth
+                                @auth若要查看课程，请点此<a href="#" class="disabled">报名</a>，我们的客服会在两小时内为您开通课程。@endauth
                             </p>
                             <hr class="my-4">
 
