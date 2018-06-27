@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome', ['teachers' => \App\Teacher::all()->where('featured', '=', true)]);
+    return view('welcome', ['videos' => \App\Video::all()->where('public', true)]);
 })->name('welcome');
 
 Route::get('about', function () {

@@ -4,6 +4,7 @@
     <div class="mt-3 mb-2" style="overflow : hidden;text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 1;-webkit-box-orient: vertical;height:25px;">
         <h5>
             <a href="{{ route('teacher.show', ['teacher' => $teacher->id]) }}" class="text-secondary">{{ $teacher->name }}</a>
+            <span class="badge badge-info">{{ $teacher->type }}</span>
         </h5>
     </div>
     <div>

@@ -15,18 +15,6 @@
                             <span class="small badge badge-info">{{ $subject->name }}</span>
                         @endforeach
                     </p>
-                    <p class="small mb-1">
-                        <strong>语文分数：</strong> {{ $teacher->gaokao->chinese }}
-                    </p>
-                    <p class="small mb-1">
-                        <strong>数学分数：</strong> {{ $teacher->gaokao->math }}
-                    </p>
-                    <p class="small mb-1">
-                        <strong>英语分数：</strong> {{ $teacher->gaokao->english }}
-                    </p>
-                    <p class="small mb-1">
-                        <strong>{{ $teacher->gaokao->type }}综合：</strong> {{ $teacher->gaokao->general }}
-                    </p>
                     <p class="small mt-3"> {{ $teacher->introduction }}</p>
                 </div>
             </div>

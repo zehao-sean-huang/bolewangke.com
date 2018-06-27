@@ -165,13 +165,11 @@
         </div>
         <div class="container marketing">
 
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                @foreach($teachers as $teacher)
-                    @include('components.teacher', ['teacher' => $teacher])
+            <div class="card-columns">
+                @foreach($videos as $video)
+                    @include('components.video-card', ['video' => $video])
                 @endforeach
-            </div><!-- /.row -->
-
+            </div>
 
             <!-- START THE FEATURETTES -->
 

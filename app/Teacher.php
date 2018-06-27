@@ -12,10 +12,6 @@ class Teacher extends Model
 
     protected $hidden = [];
 
-    public function getGaokaoAttribute($value) {
-        return json_decode($value);
-    }
-
     public function subjects() {
         return $this->belongsToMany('App\Subject', 'teacher_subject');
     }
