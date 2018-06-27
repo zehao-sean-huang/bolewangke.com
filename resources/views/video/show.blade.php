@@ -10,12 +10,23 @@
                     @can('view', $video)
                         <div class="embed-responsive embed-responsive-16by9 mt-2">
                             <iframe src="//{{ env('QCLOUD_APP_ID') }}.vod2.myqcloud.com/vod-player/{{ env('QCLOUD_APP_ID') }}/{{ $video->file_id }}/tcplayer/console/vod-player.html?autoplay=false&width=3840&height=2160"
-                                    class="embed-responsive-item" frameborder="0" scrolling="no" allowfullscreen >
+                                    class="embed-responsive-item" frameborder="0" scrolling="no" allowfullscreen>
                             </iframe>
                         </div>
                     @else
+                        <div class="jumbotron mt-2 bg-white">
+                            <h1 class="display-4">抱歉！</h1>
+                            <p class="lead">
+                                您没有权观看该课程。
+                                @if($video->public)本课程为免费课程，@endif
+                                @guest()请您先<a href="{{ route('login') }}">登录</a>或<a href="{{ route('register') }}">注册</a>。@endguest
+                                @auth若要查看课程，请点此报名，我们的客服会在两小时内为您开通课程。@endauth
+                            </p>
+                            <hr class="my-4">
 
-                    @endcan
+                            <a class="btn btn-primary btn-lg" href="{{ route('home') }}" role="link">个人中心</a>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="col-md-4">

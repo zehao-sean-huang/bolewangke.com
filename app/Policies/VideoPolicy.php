@@ -19,7 +19,7 @@ class VideoPolicy
      */
     public function view(User $user, Video $video)
     {
-        return $user->subscribedVideos->contains('id', $video->id);
+        return $user->subscribedVideos->contains('id', $video->id) || $video->public;
     }
 
     /**
