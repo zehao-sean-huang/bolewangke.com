@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTeacherVideoTable extends Migration
+class CreateCourseVideoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateTeacherVideoTable extends Migration
      */
     public function up()
     {
-        Schema::create('teacher_video', function (Blueprint $table) {
+        Schema::create('course_video', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('teacher_id');
+            $table->unsignedInteger('course_id');
             $table->unsignedInteger('video_id');
-            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('video_id')->references('id')->on('videos')->onDelete('cascade');
             $table->timestamps();
         });
@@ -30,10 +30,10 @@ class CreateTeacherVideoTable extends Migration
      */
     public function down()
     {
-        Schema::table('teacher_video', function (Blueprint $table) {
-            $table->dropForeign(['teacher_id']);
+        Schema::table('course_video', function (Blueprint $table) {
+            $table->dropForeign(['course_id']);
             $table->dropForeign(['video_id']);
         });
-        Schema::dropIfExists('teacher_video');
+        Schema::dropIfExists('course_video');
     }
 }

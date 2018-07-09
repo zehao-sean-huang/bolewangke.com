@@ -6,12 +6,16 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
                 <a href="{{ route('video.show', ['id' => $video->id]) }}" class="btn btn-sm btn-outline-secondary">查看课程</a>
-                {{--<a href="{{ route('agency.applicant.index', ['id' => $agency->id]) }}" class="btn btn-sm btn-outline-secondary">案例</a>--}}
             </div>
             @if($video->public)
-                <p class="text-light text-lg-right badge badge-warning">免费公开课</p>
+                <p class="text-light lead">
+                    <span class="badge badge-secondary">免费视频</span>
+                </p>
             @else
-                <p class="text-light text-lg-right badge badge-info">{{ $video->price }}元</p>
+                <p class="text-light lead">
+                    <del class="badge badge-info">￥{{ $video->originalPrice }}</del>
+                    <span class="badge badge-success">￥{{ $video->currentPrice }}</span>
+                </p>
             @endif
         </div>
     </div>

@@ -19,4 +19,8 @@ class Teacher extends Model
     public function videos() {
         return $this->belongsToMany('App\Video', 'teacher_video');
     }
+
+    public function courses() {
+        return $this->belongsToMany('App\Course', 'teacher_course');
+    }
 }
