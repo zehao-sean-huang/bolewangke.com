@@ -25,6 +25,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('teacher', 'TeacherController')->only(['index', 'show']);
 
+Route::prefix('video/{video}')->middleware(['auth'])->group(function () {
+
+    Route::get('order', 'VideoController@order')->name('video.order');
+
+});
+
 Route::resource('video', 'VideoController')->only(['index', 'show']);
 
 Route::resource('course', 'CourseController')->only(['index', 'show']);
+
+Route::prefix('subscription')->middleware(['auth'])->group(function () {
+
+    Route::get('process/{id}', 'SubscriptionController@process')->name('subscription.process');
+
+    Route::get('confirm/{id}', 'SubscriptionController@confirm')->name('subscription.confirm');
+
+    Route::get('abandon/{id}', 'SubscriptionController@abandon')->name('subscription.abandon');
+
+});

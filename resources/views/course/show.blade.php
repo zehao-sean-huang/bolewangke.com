@@ -40,22 +40,7 @@
             <div class="col-md-8">
                 <div id="videos" class="rounded box-shadow bg-white p-3 mb-4">
                     @foreach($course->videos as $video)
-                        <div class="media border-bottom pb-2 mb-2">
-                            <a href="{{ route('video.show', ['id' => $video->id]) }}">
-                                <img class="mr-3 rounded" width="175px" src="{{ asset('storage/' . $video->thumbnail) }}" alt="{{ $video->name }}">
-                            </a>
-                            <div class="media-body">
-                                <h6 class="mt-1 mb-2">
-                                    <a href="{{ route('video.show', ['id' => $video->id]) }}" class="text-secondary">{{ $video->name }}</a>
-                                </h6>
-                                <p class="mb-0 lead">
-                                    <del class="badge badge-info">￥{{ $video->originalPrice }}</del>
-                                    <span class="badge badge-success">￥{{ $video->currentPrice }}</span>
-                                </p>
-                                <p class="mb-0 small">{{ $video->introduction }}</p>
-                                <button role="button" class="btn btn-outline-danger btn-sm">单独购买</button>
-                            </div>
-                        </div>
+                        @include('components.video-row', ['video' => $video])
                     @endforeach
                 </div>
             </div>

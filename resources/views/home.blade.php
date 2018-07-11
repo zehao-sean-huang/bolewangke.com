@@ -34,21 +34,27 @@
                 </div>
             </div>
             <div class="col-lg-8 mb-4">
-                <div id="subscribed-videos" class="p-3 bg-white rounded box-shadow mb-4">
-                    <h5 class="border-bottom border-gray pb-2 mb-0">我订阅的视频</h5>
-                    <div class="card-columns">
-                        @foreach (Auth::user()->subscribedVideos as $video)
-                            Video???
-                        @endforeach
-                    </div>
+                <div id="ordered" class="rounded box-shadow bg-white p-3 mb-4">
+                    <h5 class="border-bottom border-gray pb-2 mb-2">已下单的视频和课程</h5>
+                    @foreach (Auth::user()->orderedVideos as $video)
+                        @include('components.video-row', ['video' => $video])
+                    @endforeach
+                    {{--TODO: Implement courses--}}
                     <small class="d-block text-right mt-3">
                         <a class="btn btn-sm btn-block btn-outline-info" href="{{ route('video.index') }}">浏览所有课程</a>
                     </small>
                 </div>
-                <h5 class="pb-2 mb-0">全部体验课程</h5>
-                <div class="card-columns mt-2">
+                <div id="subscribed" class="rounded box-shadow bg-white p-3 mb-4">
+                    <h5 class="border-bottom border-gray pb-2 mb-2">已购买的视频和课程</h5>
+                    @foreach (Auth::user()->subscribedVideos as $video)
+                        @include('components.video-row', ['video' => $video])
+                    @endforeach
+                    {{--TODO: Implement courses--}}
+                </div>
+                <div id="public" class="rounded box-shadow bg-white p-3 mb-4">
+                    <h5 class="border-bottom border-gray pb-2 mb-2">全部体验课程</h5>
                     @foreach($publicVideos as $video)
-                        @include('components.video-card', ['video' => $video])
+                        @include('components.video-row', ['video' => $video])
                     @endforeach
                 </div>
             </div>

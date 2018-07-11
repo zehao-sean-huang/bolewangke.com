@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NewOrderNotification;
+use App\Subscription;
+use App\User;
 use App\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 
 class VideoController extends Controller
 {
@@ -48,6 +54,30 @@ class VideoController extends Controller
     {
         $video = Video::findOrFail($id);
         return view('video.show', compact('video'));
+    }
+
+    /**
+     * Notify administrator about the purchase
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function order($id) {
+        $user = User::find(Auth::id());
+        $video = Video::find($id);
+        $user->subscribedVideos()->attach($video, ['paid' => false]);
+        $subscription = DB::table('subscriptions')->where([
+            'subscription_id' => $video->id,
+            'user_id' => $user->id,
+            'subscription_type' => 'App\Video'
+        ])->first();
+        Notification::route('mail', env('ADMIN_EMAIL'))
+            ->notify(new NewOrderNotification($subscription));
+        return redirect()->back()->with([
+            'title' => '我们已经收到您的订单',
+            'status' => 'success',
+            'detail' => '您计划购买的【'.$video->name.'】将在您支付课款后为您开通。'
+        ]);
     }
 
     /**
