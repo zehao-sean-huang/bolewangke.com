@@ -44,3 +44,8 @@ Route::prefix('subscription')->middleware(['auth'])->group(function () {
     Route::get('abandon/{id}', 'SubscriptionController@abandon')->name('subscription.abandon');
 
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
