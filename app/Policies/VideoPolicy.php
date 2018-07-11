@@ -19,7 +19,33 @@ class VideoPolicy
      */
     public function view(User $user, Video $video)
     {
-        return $user->subscribedVideos->contains('id', $video->id) || $video->public;
+        if ($video->public) {
+            return true;
+        }
+        if ($user->subscribedVideos->contains('id', $video->id)) {
+            return true;
+        }
+        // TODO: Users can watch videos that belong to courses they have subscribed.
+        return false;
+    }
+
+    /**
+     * Determine whether the user can purchase the video
+     *
+     * @param \App\User $user
+     * @param \App\Video $video
+     * @return mixed
+     */
+    public function purchase(User $user, Video $video)
+    {
+        if ($user->orderedVideos->contains('id', $video->id)) {
+            return false;
+        }
+        if ($user->subscribedVideos->contains('id', $video->id)) {
+            return false;
+        }
+        // TODO: Implement
+        return true;
     }
 
     /**

@@ -139,7 +139,7 @@
                         <div class="carousel-caption">
                             <h1>覆盖九大科目</h1>
                             <p>我们拥有多元化的导师团队，不仅邀请综合成绩优秀者，亦有在单一学科上经验丰富的导师入驻，无缝衔接四川高考改革，针对不同学员的自身需求，提供个性化定制服务。</p>
-                            <p><a class="btn btn-lg btn-primary disabled" href="{{ route('video.index') }}" role="link">全部课程</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="{{ route('video.index') }}" role="link">全部视频</a></p>
                         </div>
                     </div>
                 </div>

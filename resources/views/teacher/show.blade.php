@@ -22,23 +22,9 @@
     </div>
 
     <div id="videos" class="container">
-        <div class="row">
+        <div class="card-columns">
             @foreach($teacher->videos as $video)
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="{{ asset('storage/' . $video->thumbnail) }}" alt="logo">
-                        <div class="card-body">
-                            <h5>{{ $video->name }}</h5>
-                            <p class="card-text">{{ $video->introduction }}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="{{ route('video.show', ['id' => $video->id]) }}" class="btn btn-sm btn-outline-info">观看视频</a>
-                                    <a href="{{ route('about') }}" class="btn btn-sm btn-outline-info">咨询价格</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('components.video-card', ['video' => $video])
             @endforeach
         </div>
     </div>

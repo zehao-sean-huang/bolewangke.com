@@ -13,10 +13,10 @@
                     <a href="{{ route('register') }}" class="btn btn-primary my-2">注册</a>
                     <a href="{{ route('login') }}" class="btn btn-secondary my-2">登录</a>
                 @endguest
-
             </p>
         </div>
     </section>
+    @include('components.alert')
     <div class="container">
         <div class="card-columns">
             @foreach($videos as $video)

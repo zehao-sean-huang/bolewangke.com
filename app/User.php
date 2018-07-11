@@ -28,6 +28,26 @@ class User extends Authenticatable
     ];
 
     public function subscribedVideos() {
-        return $this->morphedByMany('App\Video', 'subscription');
+        return $this->morphedByMany('App\Video', 'subscription')
+            ->wherePivot('paid', true)
+            ->withPivot('id');
+    }
+
+    public function orderedVideos() {
+        return $this->morphedByMany('App\Video', 'subscription')
+            ->wherePivot('paid', false)
+            ->withPivot('id');
+    }
+
+    public function subscreibedCourses() {
+        return $this->morphedByMany('App\Course', 'subscription')
+            ->wherePivot('paid', true)
+            ->withPivot('id');
+    }
+
+    public function orderedCourses() {
+        return $this->morphedByMany('App\Course', 'subscription')
+            ->wherePivot('paid', false)
+            ->withPivot('id');
     }
 }
