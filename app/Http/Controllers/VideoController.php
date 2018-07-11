@@ -20,7 +20,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        return view('video.index', ['videos' => Video::all()]);
+        $videos = Video::all()->sortBy('public');
+        return view('video.index', compact('videos'));
     }
 
     /**

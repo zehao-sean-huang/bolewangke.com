@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    @include('components.alert')
     <div id="subscription" class="container">
         <div class="jumbotron bg-white box-shadow">
             <h1 class="display-4">订单处理</h1>
