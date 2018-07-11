@@ -21,6 +21,13 @@ class SubscriptionPolicy
     }
 
     public function process(User $user, Subscription $subscription) {
-        return true;
+//        if ($user->roles->contains('name', 'admin')) {
+//            return true;
+//        }
+//        if ($user->roles->contains('name', 'service')) {
+//            return true;
+//        }
+        return false;
+        // TODO
     }
 }
