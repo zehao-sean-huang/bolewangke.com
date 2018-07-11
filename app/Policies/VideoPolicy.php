@@ -25,7 +25,11 @@ class VideoPolicy
         if ($user->subscribedVideos->contains('id', $video->id)) {
             return true;
         }
-        // TODO: Users can watch videos that belong to courses they have subscribed.
+        foreach ($user->subscribedCourses as $course) {
+            if ($course->videos->contains('id', $video->id)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -38,13 +42,25 @@ class VideoPolicy
      */
     public function purchase(User $user, Video $video)
     {
+        if ($video->public) {
+            return false;
+        }
         if ($user->orderedVideos->contains('id', $video->id)) {
             return false;
         }
         if ($user->subscribedVideos->contains('id', $video->id)) {
             return false;
         }
-        // TODO: Implement
+        foreach ($user->orderedCourses as $course) {
+            if ($course->videos->contains('id', $video->id)) {
+                return false;
+            }
+        }
+        foreach ($user->subscribedCourses as $course) {
+            if ($course->videos->contains('id', $video->id)) {
+                return false;
+            }
+        }
         return true;
     }
 

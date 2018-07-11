@@ -45,7 +45,7 @@ class User extends Authenticatable
             ->withPivot('id');
     }
 
-    public function subscreibedCourses() {
+    public function subscribedCourses() {
         return $this->morphedByMany('App\Course', 'subscription')
             ->wherePivot('paid', true)
             ->withPivot('id');
@@ -55,5 +55,9 @@ class User extends Authenticatable
         return $this->morphedByMany('App\Course', 'subscription')
             ->wherePivot('paid', false)
             ->withPivot('id');
+    }
+
+    public function roles() {
+        return $this->belongsToMany('App\Role', 'role_user');
     }
 }
