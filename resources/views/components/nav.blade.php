@@ -20,7 +20,7 @@
                         <a class="nav-link" href="{{ route('video.index') }}">全部课程</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">关于我们</a>
+                        <a class="nav-link" href="{{ route('home') }}">个人中心</a>
                     </li>
                 </ul>
 
@@ -46,7 +46,6 @@
                                                      document.getElementById('logout-form').submit();">
                                     退出
                                 </a>
-                                <a class="dropdown-item" href="{{ route('home') }}">个人中心</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
