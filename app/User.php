@@ -56,4 +56,8 @@ class User extends \TCG\Voyager\Models\User
             ->wherePivot('paid', false)
             ->withPivot('id');
     }
+
+    public function role() {
+        return $this->belongsTo('App\Role');
+    }
 }
