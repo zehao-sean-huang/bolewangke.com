@@ -17,5 +17,5 @@ return [
     'info' => '视频信息',
     'teachers' => '导师信息',
     'price' => '￥:price',
-    'unpublished' => '尽情期待',
+    'unpublished' => '敬请期待',
 ];
