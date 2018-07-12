@@ -31,6 +31,12 @@ Route::prefix('video/{video}')->middleware(['auth'])->group(function () {
 
 });
 
+Route::prefix('course/{course}')->middleware(['auth'])->group(function () {
+
+    Route::get('order', 'CourseController@order')->name('course.order');
+
+});
+
 Route::resource('video', 'VideoController')->only(['index', 'show']);
 
 Route::resource('course', 'CourseController')->only(['index', 'show']);
