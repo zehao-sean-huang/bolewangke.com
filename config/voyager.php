@@ -223,4 +223,14 @@ return [
          'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
      ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Settings
+    |--------------------------------------------------------------------------
+    |
+    | When a change happens on Voyager, we can automate some routines.
+    |
+    */
+
+    'google_analytics_client_id' => env('GOOGLE_ANALYTICS_CLIENT_ID', ''),
 ];
