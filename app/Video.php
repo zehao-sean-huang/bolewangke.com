@@ -28,6 +28,10 @@ class Video extends Model
         return json_decode($this->price)->current;
     }
 
+    public function getPublishedAttribute() {
+        return $this->file_id !== 0;
+    }
+
     public function subscribingUsers() {
         return $this->morphToMany('App\User', 'subscription');
     }

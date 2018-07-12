@@ -14,13 +14,19 @@
         </h6>
         <p class="mb-0 lead">
             @if(!$video->public)
-                @can('view', $video)
-                    <button class="btn btn-sm btn-outline-danger" disabled>@lang('video.purchased')</button>
-                @elsecan('purchase', $video)
-                    <button class="btn btn-sm btn-outline-danger" data-target="#video-{{ $video->id }}-purchase-confirm" data-toggle="modal">@lang('video.purchase')</button>
-                @elsecannot('purchase', $video)
-                    <button class="btn btn-sm btn-outline-danger" disabled>@lang('video.processing')</button>
-                @endcannot
+                @if($video->published)
+                    @can('view', $video)
+                        <button class="btn btn-sm btn-outline-secondary" disabled>@lang('video.purchased')</button>
+                    @elsecan('purchase', $video)
+                        <button class="btn btn-sm btn-outline-secondary" data-target="#video-{{ $video->id }}-purchase-confirm" data-toggle="modal">@lang('video.purchase')</button>
+                    @elseguest
+                        <button class="btn btn-sm btn-outline-secondary" data-target="#video-{{ $video->id }}-purchase-confirm" data-toggle="modal">@lang('video.purchase')</button>
+                    @elsecannot('purchase', $video)
+                        <button class="btn btn-sm btn-outline-secondary" disabled>@lang('video.processing')</button>
+                    @endcannot
+                @else
+                    <button class="btn btn-sm btn-outline-secondary" disabled>@lang('video.unpublished')</button>
+                @endif
             @endif
         </p>
         @if(!$video->public)

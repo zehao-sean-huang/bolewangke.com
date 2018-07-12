@@ -7,17 +7,20 @@
             <div class="btn-group">
                 <a href="{{ route('video.show', ['id' => $video->id]) }}" class="btn btn-sm btn-outline-secondary">@lang('video.view')</a>
                 @if(!$video->public)
-                    @can('view', $video)
-                        <button class="btn btn-sm btn-outline-secondary" disabled>@lang('video.purchased')</button>
-                    @elsecan('purchase', $video)
-                        <button class="btn btn-sm btn-outline-secondary" data-target="#video-{{ $video->id }}-purchase-confirm" data-toggle="modal">@lang('video.purchase')</button>
-                    @elseguest
-                        <button class="btn btn-sm btn-outline-secondary" data-target="#video-{{ $video->id }}-purchase-confirm" data-toggle="modal">@lang('video.purchase')</button>
-                    @elsecannot('purchase', $video)
-                        <button class="btn btn-sm btn-outline-secondary" disabled>@lang('video.processing')</button>
-                    @endcannot
+                    @if($video->published)
+                        @can('view', $video)
+                            <button class="btn btn-sm btn-outline-secondary" disabled>@lang('video.purchased')</button>
+                        @elsecan('purchase', $video)
+                            <button class="btn btn-sm btn-outline-secondary" data-target="#video-{{ $video->id }}-purchase-confirm" data-toggle="modal">@lang('video.purchase')</button>
+                        @elseguest
+                            <button class="btn btn-sm btn-outline-secondary" data-target="#video-{{ $video->id }}-purchase-confirm" data-toggle="modal">@lang('video.purchase')</button>
+                        @elsecannot('purchase', $video)
+                            <button class="btn btn-sm btn-outline-secondary" disabled>@lang('video.processing')</button>
+                        @endcannot
+                    @else
+                        <button class="btn btn-sm btn-outline-secondary" disabled>@lang('video.unpublished')</button>
+                    @endif
                 @endif
-
             </div>
             @if($video->public)
                 <p class="text-light lead">
@@ -30,10 +33,12 @@
                 @guest()
                     @include('components.video-purchase', ['video' => $video])
                 @endguest
-                <p class="text-light lead">
-                    <del class="badge badge-info">@lang('video.price', ['price' => $video->originalPrice])</del>
-                    <span class="badge badge-success">@lang('video.price', ['price' => $video->currentPrice])</span>
-                </p>
+                @if($video->published)
+                    <p class="text-light lead">
+                        <del class="badge badge-info">@lang('video.price', ['price' => $video->originalPrice])</del>
+                        <span class="badge badge-success">@lang('video.price', ['price' => $video->currentPrice])</span>
+                    </p>
+                @endif
             @endif
         </div>
     </div>

@@ -16,5 +16,6 @@ return [
     'sorry' => '抱歉！',
     'info' => '视频信息',
     'teachers' => '导师信息',
-    'price' => '￥:price'
+    'price' => '￥:price',
+    'unpublished' => '尽情期待',
 ];
