@@ -57,7 +57,4 @@ class User extends \TCG\Voyager\Models\User
             ->withPivot('id');
     }
 
-    public function role() {
-        return $this->belongsTo('App\Role');
-    }
 }
