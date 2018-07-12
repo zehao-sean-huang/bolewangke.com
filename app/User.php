@@ -56,4 +56,5 @@ class User extends \TCG\Voyager\Models\User
             ->wherePivot('paid', false)
             ->withPivot('id');
     }
+
 }
