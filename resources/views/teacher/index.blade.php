@@ -15,4 +15,14 @@
         </div>
     </div>
 
+    <div class="d-block text-right mt-4">
+        <div class="container align-content-center">
+            <div class="mt-10">
+                <ul class="pagination justify-content-center text-info">
+                    {{ $teachers->links('vendor.pagination.bootstrap-4') }}
+                </ul>
+            </div>
+        </div>
+    </div>
+
 @endsection
