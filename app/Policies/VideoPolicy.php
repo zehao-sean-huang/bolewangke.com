@@ -19,6 +19,12 @@ class VideoPolicy
      */
     public function view(User $user, Video $video)
     {
+        if ($user->role->name === 'admin') {
+            return true;
+        }
+        if ($user->role->name === 'vip') {
+            return true;
+        }
         if ($video->public) {
             return true;
         }
@@ -42,6 +48,12 @@ class VideoPolicy
      */
     public function purchase(User $user, Video $video)
     {
+        if ($user->role->name === 'admin') {
+            return false;
+        }
+        if ($user->role->name === 'vip') {
+            return false;
+        }
         if ($video->public) {
             return false;
         }
