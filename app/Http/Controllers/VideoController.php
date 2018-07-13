@@ -84,7 +84,8 @@ class VideoController extends Controller
         return redirect()->back()->with([
             'title' => '我们已经收到您的订单',
             'status' => 'success',
-            'detail' => '您计划购买的【'.$video->name.'】将在您支付课款后为您开通。'
+            'detail' => '您发起了购买【'.$video->name.'】的订单。伯乐小助手会在12小时内添加您的QQ（'.
+                $user->qq.'），在您支付课款后为您开通课程，请您及时关注QQ消息。'
         ]);
     }
 
