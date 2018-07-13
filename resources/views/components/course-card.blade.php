@@ -7,7 +7,7 @@
             <span class="badge badge-secondary">@lang('course.video_count', ['video_count' => $course->videos->count()])</span>
         </h5>
         <p class="card-text">{{ $course->introduction }}</p>
-        <p class="card-text">{{ $course->teachers }}</p>
+        @include('components.teachers-inline', ['teachers' => $course->teachers])
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
                 <a href="{{ route('course.show', ['id' => $course->id]) }}" class="btn btn-sm btn-outline-secondary">@lang('course.view')</a>

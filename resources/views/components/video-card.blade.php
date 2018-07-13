@@ -6,6 +6,7 @@
             <span class="badge badge-info">单独视频</span>
         </h5>
         <p class="card-text">{{ $video->introduction }}</p>
+        @include('components.teachers-inline', ['teachers' => $video->teachers])
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
                 <a href="{{ route('video.show', ['id' => $video->id]) }}" class="btn btn-sm btn-outline-secondary">@lang('video.view')</a>
