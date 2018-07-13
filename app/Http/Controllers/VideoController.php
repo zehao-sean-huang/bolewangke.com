@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Notifications\NewOrderNotification;
-use App\Subscription;
+use App\Note;
 use App\User;
 use App\Video;
 use Illuminate\Http\Request;
@@ -23,7 +23,12 @@ class VideoController extends Controller
     {
         $videos = Video::all()->sortBy('public');
         $courses = Course::all();
-        return view('video.index', ['videos' => $videos, 'courses' => $courses]);
+        $notes = Note::all();
+        return view('video.index', [
+            'videos' => $videos,
+            'courses' => $courses,
+            'notes' => $notes,
+        ]);
     }
 
     /**

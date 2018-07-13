@@ -3,6 +3,7 @@
     <div class="card-body">
         <h5 class="card-title">
             {{ $course->name }}
+            <span class="badge badge-info">课程套装</span>
             <span class="badge badge-secondary">@lang('course.video_count', ['video_count' => $course->videos->count()])</span>
         </h5>
         <p class="card-text">{{ $course->introduction }}</p>

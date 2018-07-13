@@ -25,6 +25,9 @@
             @foreach($videos as $video)
                 @include('components.video-card', ['video' => $video])
             @endforeach
+            @foreach($notes as $note)
+                @include('components.note-card', ['note' => $note])
+            @endforeach
         </div>
     </div>
 

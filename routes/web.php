@@ -41,6 +41,8 @@ Route::resource('video', 'VideoController')->only(['index', 'show']);
 
 Route::resource('course', 'CourseController')->only(['index', 'show']);
 
+Route::resource('note', 'NoteController')->only(['show']);
+
 Route::prefix('subscription')->middleware(['auth'])->group(function () {
 
     Route::get('process/{id}', 'SubscriptionController@process')->name('subscription.process');
