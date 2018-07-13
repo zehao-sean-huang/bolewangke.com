@@ -12,7 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome', ['videos' => \App\Video::all()->where('public', true)]);
+    return view('welcome', [
+        'videos' => \App\Video::all()
+            ->where('published', true)
+            ->sortBy('public'),
+        'courses' => \App\Course::all(),
+        'notes' => \App\Note::all()
+    ]);
 })->name('welcome');
 
 Route::get('about', function () {
