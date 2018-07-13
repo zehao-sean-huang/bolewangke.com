@@ -2,10 +2,14 @@
 
 namespace App;
 
+use App\Traits\HasPrice;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class Course extends Model
 {
+    use HasPrice;
+
     protected $table = "courses";
 
     public function teachers() {
@@ -14,13 +18,5 @@ class Course extends Model
 
     public function videos() {
         return $this->belongsToMany('App\Video', 'course_video');
-    }
-
-    public function getOriginalPriceAttribute() {
-        return json_decode($this->price)->original;
-    }
-
-    public function getCurrentPriceAttribute() {
-        return json_decode($this->price)->current;
     }
 }

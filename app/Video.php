@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\HasPrice;
 use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
+    use HasPrice;
+
     protected $table = 'videos';
 
     protected $fillable = ['name', 'introduction', 'file_id', 'thumbnail'];
@@ -18,14 +21,6 @@ class Video extends Model
 
     public function courses() {
         return $this->belongsToMany('App\Course', 'course_video');
-    }
-
-    public function getOriginalPriceAttribute() {
-        return json_decode($this->price)->original;
-    }
-
-    public function getCurrentPriceAttribute() {
-        return json_decode($this->price)->current;
     }
 
     public function getPublishedAttribute() {

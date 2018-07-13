@@ -166,8 +166,14 @@
         <div class="container marketing">
 
             <div class="card-columns">
+                @foreach($courses as $course)
+                    @include('components.course-card', ['course' => $course])
+                @endforeach
                 @foreach($videos as $video)
                     @include('components.video-card', ['video' => $video])
+                @endforeach
+                @foreach($notes as $note)
+                    @include('components.note-card', ['note' => $note])
                 @endforeach
             </div>
 
