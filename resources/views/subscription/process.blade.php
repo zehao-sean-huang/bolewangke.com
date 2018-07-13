@@ -10,7 +10,7 @@
                 <span class="badge badge-info">价格￥{{ $item->currentPrice }}</span>
             </p>
             <p class="lead mb-1">用户名：<strong>{{ $user->name }}</strong></p>
-            <p class="lead">联系方式：TODO</p>
+            <p class="lead">QQ号：{{ $user->qq }}</p>
             <hr class="my-4">
             <p>
                 @if($subscription->paid)

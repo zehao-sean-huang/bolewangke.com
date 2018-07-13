@@ -56,7 +56,7 @@ class NewOrderNotification extends Notification
         return (new MailMessage)
             ->subject('新订单等待处理')
             ->line('用户【'.$this->user->name.'】新订购了【'.$this->item->name.'】，价格为￥'
-                .$this->item->currentPrice.'。')
+                .$this->item->currentPrice.'。用户QQ号为'.$this->user->qq.'，请及时联系收款。')
             ->action('立即处理', url(config('app.url').route('subscription.process', $this->subscription_id, false)))
             ->line('如果您不是管理员，请立即联系contact@bolewangke.com');
     }

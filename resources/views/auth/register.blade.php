@@ -61,6 +61,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="qq" class="col-md-4 col-form-label text-md-right">{{ __('QQ') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="qq" type="tel" class="form-control{{ $errors->has('qq') ? ' is-invalid' : '' }}" name="qq" required>
+
+                                @if ($errors->has('qq'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('qq') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
