@@ -1,7 +1,10 @@
 <div class="card">
     <img class="card-img-top" src="{{ asset('storage/' . $video->thumbnail) }}" alt="{{ $video->name }}">
     <div class="card-body">
-        <h5 class="card-title">{{ $video->name }}</h5>
+        <h5 class="card-title">
+            {{ $video->name }}
+            <span class="badge badge-info">单独视频</span>
+        </h5>
         <p class="card-text">{{ $video->introduction }}</p>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
