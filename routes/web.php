@@ -59,6 +59,8 @@ Route::prefix('subscription')->middleware(['auth'])->group(function () {
 
 });
 
+Route::resource('tag', 'TagController')->only(['show']);
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -3,7 +3,8 @@
     <div class="card-body">
         <h5 class="card-title">
             {{ $video->name }}
-            <span class="badge badge-info">单独视频</span>
+            <span class="badge badge-warning">单独视频</span>
+            @include('components.tags-row', ['tags' => $video->tags])
         </h5>
         <p class="card-text">{{ $video->introduction }}</p>
         @include('components.teachers-inline', ['teachers' => $video->teachers])
