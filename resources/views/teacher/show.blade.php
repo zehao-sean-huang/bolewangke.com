@@ -9,13 +9,8 @@
                      src="{{ asset('storage/' . $teacher->picture) }}" alt="教师头像" width="100px">
                 <div class="media-body">
                     <h3>{{ $teacher->name }}</h3>
-                    <p class="small mb-1">
-                        <strong>擅长科目：</strong>
-                        @foreach($teacher->subjects as $subject)
-                            <span class="small badge badge-info">{{ $subject->name }}</span>
-                        @endforeach
-                    </p>
-                    <p class="small mt-3"> {{ $teacher->introduction }}</p>
+                    <p class="lead mb-0">@include('components.tags-row', ['tags' => $teacher->tags])</p>
+                    <p class="mt-3"> {{ $teacher->introduction }}</p>
                 </div>
             </div>
         </div>

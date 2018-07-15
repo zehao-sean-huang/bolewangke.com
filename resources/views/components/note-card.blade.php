@@ -4,6 +4,7 @@
         <h5 class="card-title">
             {{ $note->name }}
             <span class="badge badge-info">甄选笔记</span>
+            @include('components.tags-row', ['tags' => $note->tags])
         </h5>
         <p class="card-text">{{ $note->introduction }}</p>
         <div class="d-flex justify-content-between align-items-center">

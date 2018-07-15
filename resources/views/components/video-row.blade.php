@@ -12,6 +12,7 @@
                 <span class="badge badge-success">@lang('video.price', ['price' => $video->currentPrice])</span>
             @endif
         </h6>
+        @include('components.tags-row', ['tags' => $video->tags])
         <p class="mb-0 lead">
             @if(!$video->public)
                 @if($video->published)

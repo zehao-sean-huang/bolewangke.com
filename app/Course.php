@@ -3,12 +3,14 @@
 namespace App;
 
 use App\Traits\HasPrice;
+use App\Traits\HasTags;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 class Course extends Model
 {
     use HasPrice;
+    use HasTags;
 
     protected $table = "courses";
 

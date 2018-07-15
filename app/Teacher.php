@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\HasTags;
 use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
+    use HasTags;
+
     protected $table = 'teachers';
 
     protected $guarded = [];
