@@ -25,7 +25,7 @@
             /* Padding below the footer and lighter body text */
 
             body {
-                padding-top: 3rem;
+                padding-top: 5rem;
                 padding-bottom: 3rem;
                 color: #5a5a5a;
             }
@@ -36,25 +36,25 @@
 
             /* Carousel base class */
             .carousel {
-                margin-bottom: 4rem;
+                margin-bottom: 1rem;
             }
-            /* Since positioning the image, we need to help out the caption */
-            .carousel-caption {
-                bottom: 3rem;
-                z-index: 10;
-            }
+            /*!* Since positioning the image, we need to help out the caption *!*/
+            /*.carousel-caption {*/
+                /*bottom: 3rem;*/
+                /*z-index: 10;*/
+            /*}*/
 
-            /* Declare heights because of positioning of img element */
-            .carousel-item {
-                height: 32rem;
-                background-color: #777;
-            }
+            /*!* Declare heights because of positioning of img element *!*/
+            /*.carousel-item {*/
+                /*height: 32rem;*/
+                /*background-color: #777;*/
+            /*}*/
             .carousel-item > img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                min-width: 100%;
-                height: 32rem;
+                /*position: absolute;*/
+                /*top: 0;*/
+                /*left: 0;*/
+                /*min-width: 100%;*/
+                /*height: 32rem;*/
             }
 
 
@@ -95,11 +95,11 @@
 
             @media (min-width: 40em) {
                 /* Bump up size of carousel content */
-                .carousel-caption p {
-                    margin-bottom: 1.25rem;
-                    font-size: 1.25rem;
-                    line-height: 1.4;
-                }
+                /*.carousel-caption p {*/
+                    /*margin-bottom: 1.25rem;*/
+                    /*font-size: 1.25rem;*/
+                    /*line-height: 1.4;*/
+                /*}*/
 
                 .featurette-heading {
                     font-size: 50px;
@@ -107,61 +107,48 @@
             }
 
             @media (min-width: 62em) {
-                .carousel-heading {
-                    margin-top: 7rem;
-                }
+                /*.carousel-heading {*/
+                    /*margin-top: 7rem;*/
+                /*}*/
             }
 
         </style>
     </head>
     <body>
         @include('components.nav')
-        <div id="features-carousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#features-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#features-carousel" data-slide-to="1" class=""></li>
-                <li data-target="#features-carousel" data-slide-to="2" class=""></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="first-slide" src="{{ asset('storage/images/carousel-1.jpeg') }}" alt="First slide">
-                    <div class="container">
-                        <div class="carousel-caption text-left">
-                            <h1>名校导师团队</h1>
-                            <p>我们邀请2018年高考中文理科顶尖考生，根据他们三年来学习的心得体会，利用他们对知识的熟悉和题型的把握，为四川的学弟学妹们制作高质量的网络课程。</p>
-                            <p><a class="btn btn-lg btn-primary" href="{{ route('teacher.index') }}" role="button">全部导师</a></p>
-                        </div>
+        <div class="container rounded">
+            <div id="features-carousel" class="carousel slide rounded" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#features-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#features-carousel" data-slide-to="1" class=""></li>
+                    <li data-target="#features-carousel" data-slide-to="2" class=""></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class=" carousel-item active">
+                        <a href="#">
+                            <img class="rounded d-block w-100" src="{{ asset('storage/thumbnails/carousel-1.jpg') }}" alt="First slide">
+                        </a>
+                    </div>
+                    <div class="rounded carousel-item">
+                        <a href="#">
+                            <img class="rounded d-block w-100" src="{{ asset('storage/thumbnails/carousel-2.jpg') }}" alt="Second slide">
+                        </a>
+                    </div>
+                    <div class="rounded carousel-item">
+                        <a href="#">
+                            <img class="rounded d-block w-100" src="{{ asset('storage/thumbnails/carousel-3.jpg') }}" alt="Third slide">
+                        </a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="second-slide" src="{{ asset('storage/images/carousel-2.jpeg') }}" alt="Second slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>覆盖九大科目</h1>
-                            <p>我们拥有多元化的导师团队，不仅邀请综合成绩优秀者，亦有在单一学科上经验丰富的导师入驻，无缝衔接四川高考改革，针对不同学员的自身需求，提供个性化定制服务。</p>
-                            <p><a class="btn btn-lg btn-primary" href="{{ route('video.index') }}" role="link">全部视频</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="third-slide" src="{{ asset('storage/images/carousel-3.jpeg') }}" alt="Third slide">
-                    <div class="container">
-                        <div class="carousel-caption text-right">
-                            <h1>长期线上答疑</h1>
-                            <p>除了在我们平台进行网课学习，我们的专业客服团队会联系导师和学员进行线上答疑。学员在收获课程内容本身的同时，也能获得导师的个性化知道，和导师建立长期联系。</p>
-                            <p><a class="btn btn-lg btn-primary" href="{{ route('register') }}" role="button">立即注册</a></p>
-                        </div>
-                    </div>
-                </div>
+                <a class="carousel-control-prev" href="#features-carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#features-carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <a class="carousel-control-prev" href="#features-carousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#features-carousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
         <div class="container marketing">
 
