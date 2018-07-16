@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Note;
 use App\Subscription;
 use App\User;
 use App\Video;
@@ -24,6 +25,8 @@ class SubscriptionController extends Controller
             $item = Video::find($subscription->subscription_id);
         } else if ($subscription->subscription_type === 'App\Course') {
             $item = Course::find($subscription->subscription_id);
+        } else if ($subscription->subscription_type === 'App\Note') {
+            $item = Note::find($subscription->subscription_id);
         }
         return view('subscription.process', [
             'user' => $user,
@@ -37,7 +40,7 @@ class SubscriptionController extends Controller
         return redirect()->back()->with([
             'title' => '开通成功',
             'status' => 'success',
-            'detail' => '已经成功为用户开通课程'
+            'detail' => '已经成功确认订单。'
         ]);
     }
 
@@ -46,7 +49,7 @@ class SubscriptionController extends Controller
         return redirect()->home()->with([
             'title' => '订单取消',
             'status' => 'danger',
-            'detail' => '您已成功取消用户订单'
+            'detail' => '您已成功取消用户订单。'
         ]);
     }
 }

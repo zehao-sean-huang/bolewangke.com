@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     @include('components.alert')
     <div id="subscription" class="container">
         <div class="jumbotron bg-white box-shadow">
@@ -10,7 +11,10 @@
                 <span class="badge badge-info">价格￥{{ $item->currentPrice }}</span>
             </p>
             <p class="lead mb-1">用户名：<strong>{{ $user->name }}</strong></p>
-            <p class="lead">QQ号：{{ $user->qq }}</p>
+            <p class="lead mb-1">QQ号：{{ $user->qq }}</p>
+            <p class="lead mb-1">手机号：{{ $user->mobile }}</p>
+            <p class="lead mb-1">地址：{{ $user->address }}</p>
+            <p class="lead mb-1">真实姓名：{{ $user->real_name }}</p>
             <hr class="my-4">
             <p>
                 @if($subscription->paid)

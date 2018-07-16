@@ -5,6 +5,7 @@ namespace App\Notifications;
 use App\Course;
 use App\User;
 use App\Video;
+use App\Note;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -31,6 +32,8 @@ class NewOrderNotification extends Notification
             $this->item = Video::find($subscription->subscription_id);
         } else if ($subscription->subscription_type === 'App\Course') {
             $this->item = Course::find($subscription->subscription_id);
+        } else if ($subscription->subscription_type === 'App\Note') {
+            $this->item = Note::find($subscription->subscription_id);
         }
     }
 
@@ -57,8 +60,8 @@ class NewOrderNotification extends Notification
             ->subject('新订单等待处理')
             ->line('用户【'.$this->user->name.'】新订购了【'.$this->item->name.'】，价格为￥'
                 .$this->item->currentPrice.'。用户QQ号为'.$this->user->qq.'，请及时联系收款。')
-            ->action('立即处理', url(config('app.url').route('subscription.process', $this->subscription_id, false)))
-            ->line('如果您不是管理员，请立即联系contact@bolewangke.com');
+            ->action('查看详情', url(config('app.url').route('subscription.process', $this->subscription_id, false)))
+            ->line('如果您不是管理员，请立即联系 contact@bolewangke.com');
     }
 
     /**

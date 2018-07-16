@@ -28,9 +28,12 @@ class User extends \TCG\Voyager\Models\User
         'password', 'remember_token',
     ];
 
-    public function sendPasswordResetNotification($token)
-    {
+    public function sendPasswordResetNotification($token) {
         $this->notify(new ResetPasswordNotification($token));
+    }
+
+    public function getContactAvailableAttribute() {
+        return $this->address !== null && $this->mobile !== null && $this->real_name !== null;
     }
 
     public function subscribedVideos() {
@@ -53,6 +56,18 @@ class User extends \TCG\Voyager\Models\User
 
     public function orderedCourses() {
         return $this->morphedByMany('App\Course', 'subscription')
+            ->wherePivot('paid', false)
+            ->withPivot('id');
+    }
+
+    public function subscribedNotes() {
+        return $this->morphedByMany('App\Note', 'subscription')
+            ->wherePivot('paid', true)
+            ->withPivot('id');
+    }
+
+    public function orderedNotes() {
+        return $this->morphedByMany('App\Note', 'subscription')
             ->wherePivot('paid', false)
             ->withPivot('id');
     }

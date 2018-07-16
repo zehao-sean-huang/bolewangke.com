@@ -22,6 +22,10 @@
                         @cannot('purchase', $course)@lang('purchase.processing')@endcannot
                     @endauth
                 </a>
+                @guest()
+                    <a href="{{ route('login') }}">登录</a>
+                    <a href="{{ route('register') }}">注册</a>
+                @endguest
             </div>
         </div>
     </div>
