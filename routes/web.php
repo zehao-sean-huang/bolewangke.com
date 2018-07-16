@@ -27,7 +27,15 @@ Route::get('about', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('home')->middleware(['auth'])->group(function () {
+
+    Route::get('/', 'HomeController@index')->name('home');
+
+    Route::get('contact/edit', 'HomeController@editContact')->name('home.contact.edit');
+
+    Route::put('contact/update', 'HomeController@updateContact')->name('home.contact.update');
+
+});
 
 Route::resource('teacher', 'TeacherController')->only(['index', 'show']);
 
